@@ -36,3 +36,11 @@ public class SlideWindow {
     }
 
 }
+
+//如果子数组 arr[i..j]满足条件，即 max(arr[i..j])-min(arr[i..j])<=num，那么 arr[i..j]中的每一
+//个子数组，即 arr[k..l]（i≤k≤l≤j）都满足条件。我们以子数组 arr[i..j-1]为例说明，arr[i..j-1]
+//最大值只可能小于或等于 arr[i..j]的最大值，arr[i..j-1]最小值只可能大于或等于 arr[i..j]
+//的最小值，所以 arr[i..j-1]必然满足条件。同理，arr[i..j]中的每一个子数组都满足条件。
+
+// 如果子数组 arr[i..j]不满足条件，那么所有包含 arr[i..j]的子数组，即 arr[k..l]（k≤i≤j≤l）
+//都不满足条件。证明过程同第一个结论。
