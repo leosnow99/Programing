@@ -83,10 +83,4 @@ public class TowerHanoiByStack {
         }
         return 0;
     }
-
-    public static void main(String[] args) {
-        hanoiProblemRecursion(3, "left", "mid", "right");
-        System.out.println("----------------");
-        hanoiProblemByStack(3, "left", "mid", "right");
-    }
 }
