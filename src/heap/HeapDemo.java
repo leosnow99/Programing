@@ -72,15 +72,9 @@ public class HeapDemo {
     }
 
     private void sort(int size) {
-//        while (size > 1) {
-//            swap(0, size - 1);
-//            maxHeapify(0, --size);
-//        }
-
-        for (int i = size - 1; i >= 1; i--) {
-            swap(0, i);
-            System.out.println(i + " " + size);
-            maxHeapify(0, --size);
+        while (size > 1) {
+            swap(0, --size);
+            maxHeapify(0, size);
         }
     }
 
