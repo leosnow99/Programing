@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Stack;
+
 public class MyTree {
 	public class Node {
 		int value;
@@ -300,6 +303,94 @@ public class MyTree {
 		}
 		levelOrderLevel(node.left, level - 1);
 		levelOrderLevel(node.right, level - 1);
+	}
+	
+	//非递归遍历
+	public void preOrderIter() {
+		if (root == null) {
+			return;
+		}
+		final Stack<Node> stack = new Stack<>();
+		stack.push(root);
+		
+		while (!stack.isEmpty()) {
+			final Node node = stack.pop();
+			System.out.print(node.value + " ");
+			
+			if (node.right != null) {
+				stack.push(node.right);
+			}
+			if (node.left != null) {
+				stack.push(node.left);
+			}
+		}
+	}
+	
+	//非递归中序遍历
+	public void inOrderIter() {
+		if (root == null) {
+			return;
+		}
+		final Stack<Node> stack = new Stack<>();
+		Node current = root;
+		
+		while (current != null || !stack.isEmpty()) {
+			if (current != null) {
+				stack.push(current);
+				current = current.left;
+			} else {
+				final Node node = stack.pop();
+				System.out.print(node.value + " ");
+				current = current.right;
+			}
+		}
+	}
+	
+	//非递归后序遍历
+	public void afterOrderIter() {
+		if (root == null) {
+			return;
+		}
+		final Stack<Node> stack = new Stack<>();
+		final Stack<Node> outPut = new Stack<>();
+		
+		stack.push(root);
+		Node node;
+		while (!stack.isEmpty()) {
+			node = stack.pop();
+			outPut.push(node);
+			
+			if (node.left != null) {
+				stack.push(node);
+			}
+			if (node.right != null) {
+				stack.push(node);
+			}
+		}
+		
+		while (!outPut.isEmpty()) {
+			node = outPut.pop();
+			System.out.print(node.value + " ");
+		}
+	}
+	
+	//层序遍历-非递归
+	public void levelOrderIter() {
+		if (root == null) {
+			return;
+		}
+		final LinkedList<Node> queue = new LinkedList<>();
+		queue.addFirst(root);
+		while (!queue.isEmpty()) {
+			final Node node = queue.getFirst();
+			if (node.left != null) {
+				queue.addLast(node.left);
+			}
+			if (node.right != null) {
+				queue.addLast(node.right);
+			}
+			System.out.print(node.value + " ");
+		}
 	}
 	
 	public static void main(String[] args) {
