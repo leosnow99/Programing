@@ -32,10 +32,6 @@ public class PriorityQueue {
 	}
 	
 	public int extractMax() {
-//		int element = heap[--heapSize];
-//		swap(0, heapSize);
-//		maxHeapify(0);
-//		return element;
 		if (heapSize <= 0) {
 			return 0;
 		}
@@ -64,7 +60,7 @@ public class PriorityQueue {
 		
 		while (i > 0 && heap[getParent(i)] < heap[i]) {
 			swap(i, getParent(i));
-			i = getLeft(i);
+			i = getParent(i);
 		}
 	}
 	
