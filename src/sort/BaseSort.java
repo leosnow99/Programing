@@ -126,7 +126,8 @@ public class BaseSort {
 		//最后再从头到尾处理一遍
 		merger(a, 0, s / 2 - 1, n - 1);
 	}
-	
+
+	//快速排序
 	public void quickSort(int[] arr, int left, int right) {
 		if (left >= right) return;
 		final int partition = partition(arr, left, right);

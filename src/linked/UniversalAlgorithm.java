@@ -213,7 +213,7 @@ public class UniversalAlgorithm {
         return true;
     }
 
-    //将链表的右半部分“折过去”，然后让它和左半部分比较
+    //将链表的右半部分“折过去”，然后让它和左半部分比较 --右半部分存入栈中
     public static boolean isPalindromeHalf(Node head) {
         if (head == null || head.next == null) {
             return true;
@@ -259,7 +259,7 @@ public class UniversalAlgorithm {
         //反转连标右半部分
         n2 = n1.next; //右半部分第一个节点
         n1.next = null;
-        Node n3 = null;
+        Node n3;
         while (n2 != null) {
             n3 = n2.next; //保存下一个节点
             n2.next = n1; //反转下一个节点
