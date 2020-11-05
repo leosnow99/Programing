@@ -310,7 +310,7 @@ public class UniversalAlgorithm {
 }
 
 class Node {
-    final int value;
+    int value;
     Node next;
 
     public Node(int data) {
@@ -319,9 +319,9 @@ class Node {
 }
 
 class DoubleNode {
+    private final int value;
     DoubleNode pre;
     DoubleNode next;
-    private final int value;
 
     public DoubleNode(int value) {
         this.value = value;
