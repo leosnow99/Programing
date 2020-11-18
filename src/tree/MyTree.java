@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 public class MyTree {
-	public class Node {
+	public static class Node {
 		int value;
 		Node left;
 		Node right;
