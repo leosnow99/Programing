@@ -1,6 +1,7 @@
 package cow.advanced.three;
 
 /**
+ * 按顺寻走, 路径是否交叉
  * @author LEOSNOW
  */
 public class SelfCrossing {
