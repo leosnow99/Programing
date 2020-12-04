@@ -87,14 +87,87 @@ class RecordFirst {
  * 2．假设子树的头节点为 h，h 所有的后代节点和 h 节点的最近公共祖先都是 h，记录下来。h 左子树的每个节点和 h 右子树的每个节点的最近公共祖先都是 h，记录下来。
  * 为了保证记录不重复，设计一种好的实现方式是这种结构实现的重点。
  *
+ * 如果二叉树的节点数为 N，想要记录每两个节点之间的信息，信息的条数为((N-1)×N)/2。所 以建立结构二的过程的额外空间复杂度为 O(N2 )，时间复杂度为 O(N2 )，
+ * 单次查询的时间复杂度 为 O(1)。
+ *
  * @author leosnow
  */
 class RecordSecond {
     private final Map<Node, Map<Node, Node>> map;
 
-    public RecordSecond() {
+    public RecordSecond(Node head) {
         map = new HashMap<>();
+        initMap(head);
+        setMap(head);
     }
 
+    //初始化所有节点 --初始化所有节点Map
+    private void initMap(Node head) {
+        if (head == null) {
+            return;
+        }
+        map.put(head, new HashMap<>());
+        initMap(head.left);
+        initMap(head.right);
+    }
 
+    private void setMap(Node head) {
+        if (head == null) {
+            return;
+        }
+        headRecord(head.left, head);
+        headRecord(head.right, head);
+        subRecord(head);
+        setMap(head.left);
+        setMap(head.right);
+    }
+
+    private void headRecord(Node n, Node h) {
+        if (n == null) {
+            return;
+        }
+        map.get(n).put(h, h);
+        headRecord(n.left, h);
+        headRecord(n.right, h);
+    }
+
+    private void subRecord(Node head) {
+        if (head == null) {
+            return;
+        }
+        preLeft(head.left, head.right, head);
+        subRecord(head.left);
+        subRecord(head.right);
+    }
+
+    private void preLeft(Node l, Node r, Node h) {
+        if (l == null) {
+            return;
+        }
+        preRight(l, r, h);
+        preLeft(l.left, r, h);
+        preLeft(l.right, r, h);
+    }
+
+    private void preRight(Node l, Node r, Node h) {
+        if (r == null) {
+            return;
+        }
+        map.get(l).put(r, h);
+        preRight(l, r.left, h);
+        preRight(l, r.right, h);
+    }
+
+    public Node query(Node o1, Node o2) {
+        if (o1 == o2) {
+            return o1;
+        }
+        if (map.get(o1).get(o2) != null) {
+            return map.get(o1).get(o2);
+        }
+        if (map.get(o2).get(o1) != null) {
+            return map.get(o2).get(o1);
+        }
+        return null;
+    }
 }
