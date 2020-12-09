@@ -159,6 +159,4 @@ public class LRUDemo {
 			this.keyNodeMap.remove(removeKey);
 		}
 	}
-	
-	
 }
