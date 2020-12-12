@@ -16,7 +16,7 @@ public class ValidExpression {
 				stack.push(aChar);
 			}
 			if (aChar == '}' || aChar == ']' || aChar == ')') {
-				char match = aChar == '}' ? '}' : aChar == ']' ? ']' : ')';
+				char match = aChar == '}' ? '{' : aChar == ']' ? '[' : '(';
 				if (stack.isEmpty() || match != stack.pop()) {
 					return false;
 				}
