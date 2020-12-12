@@ -7,7 +7,7 @@ package heap;
 public class PrintMaxTopK {
 	private static class HeapNode {
 		private int value;
-		private int arrNum;
+		private final int arrNum;
 		private int index;
 		
 		public HeapNode(int value, int arrNum, int index) {
