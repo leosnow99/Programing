@@ -3,6 +3,8 @@ package dp;
 /**
  * 给定数组 arr，arr 中所有的值都为正数且不重复。每个值代表一种面值的货币，每种面值 的货币可以使用任意张，
  * 再给定一个整数 aim，代表要找的钱数，求组成 aim 的最少货币数。
+ *
+ * @author leosnow
  */
 public class MiniCoins {
     public static int miniCoins(int[] arr, int num) {
