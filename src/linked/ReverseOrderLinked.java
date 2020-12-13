@@ -1,5 +1,8 @@
 package linked;
 
+/**
+ * @author LEOSNOW
+ */
 public class ReverseOrderLinked {
 	
 	public static void reverse(MyLinkedList list) {
