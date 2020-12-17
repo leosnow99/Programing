@@ -24,6 +24,8 @@ public class GetMaxLength {
 		if (!map.containsKey(curSum)) {
 			map.put(curSum, level);
 		}
+		
+		//以 cur 结尾的情况下，累加和为规定值的最长路径长度，
 		if (map.containsKey(curSum - target)) {
 			maxLen = Math.max(maxLen, level - map.get(curSum - target));
 		}
