@@ -12,8 +12,10 @@ public class SmallestMissNum {
 			if (arr[left] == left + 1) {
 				left++;
 			} else if (arr[left] <= left || arr[left] >= right || arr[arr[left - 1]] == arr[left]) {
+				// 最右坐标无法到达, arr[left]数无效
 				arr[left] = arr[right--];
 			} else {
+				// 将比坐标大的值切换到指定坐标
 				swap(arr, left, arr[left] - 1);
 			}
 		}

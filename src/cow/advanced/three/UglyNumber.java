@@ -1,6 +1,10 @@
 package cow.advanced.three;
 
 /**
+ * 一个数的因子仅仅包括2, 3, 5的数称为丑数;
+ * 数字1也看作丑数, 所以从1开始的10个丑数分别为: 1, 2, 3, 4, 5, 6, 8, 9, 10, 12
+ * 返回第n个丑数
+ *
  * @author LEOSNOW
  */
 public class UglyNumber {
